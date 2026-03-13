@@ -1,0 +1,1 @@
+## Discord GBVSR Frame Data Bot
