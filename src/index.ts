@@ -1,5 +1,6 @@
 import { Client, Events, GatewayIntentBits, REST, Routes, SlashCommandBuilder, SlashCommandStringOption } from "discord.js";
 import dotenv from "dotenv";
+import resolveCharacter from "./resolve-character";
 
 const [,, dev] = process.argv;
 
@@ -50,7 +51,6 @@ async function onReadyProd() {
     const guilds = await bot.guilds.fetch();
     const guildIds: string[] = [];
     guilds.each((guild) => {
-        console.log(guild.id, guild.name)
         guildIds.push(guild.id);
     });
     const withoutDev = guildIds.filter((i) => i !== process.env.DEV_GUILD_ID);
@@ -66,7 +66,18 @@ bot.on(Events.ClientReady, isDev ? onReadyDev : onReadyProd);
 bot.on(Events.InteractionCreate, function(interaction) {
     console.log(interaction);
     if (interaction.isChatInputCommand()) {
-        console.log(interaction.command);
+        const characterName = interaction.options.get("character").value.toString();
+        const resolved = resolveCharacter(characterName);
+        console.log({ characterName, resolved });
+        if (resolved[0]) {
+            interaction.reply({
+                content: resolved
+            });
+        } else {
+            interaction.reply({
+                content: "No match found"
+            });
+        }
     }
 });
 
