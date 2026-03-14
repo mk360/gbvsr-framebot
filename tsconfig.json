@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "lib": ["ESNext"],
+        "resolveJsonModule": true,
+        "moduleResolution": "nodenext",
+        "module": "nodenext",
+        "noImplicitAny": true,
+        "rootDir": "./src",
+        "outDir": "./lib",
+        "target": "es2020"
+    }
+}
