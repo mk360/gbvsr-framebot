@@ -46,6 +46,47 @@ const ROSTER: Character[] = [
         name: "Eustace",
     },
     {
+        name: "Ferry"
+    },
+    {
+        name: "Galleon"
+    },
+    {
+        name: "Gran"
+    },
+    {
+        name: "Gran (EX)",
+        aliases: ["gex"]
+    },
+    {
+        name: "Grimnir",
+    },
+    {
+        name: "Ilsa"
+    },
+    {
+        name: "Katalina",
+        aliases: ["oneesama"]
+    },
+    {
+        name: "Ladiva"
+    },
+    {
+        name: "Lancelot",
+    },
+    {
+        name: "Lowain",
+    },
+    {
+        name: "Lucilius",
+    },
+    {
+        name: "Meg"
+    },
+    {
+        name: "Metera"
+    },
+    {
         name: "Narmaya",
         aliases: ["Narm"]
     },
@@ -54,13 +95,55 @@ const ROSTER: Character[] = [
         aliases: ["EX narm", "narm ex", "ex narmaya", "narmaya ex"]
     },
     {
+        name: "Nier"
+    },
+    {
+        name: "Percival",
+        aliases: ["percy"]
+    },
+    {
+        name: "Sandalphon",
+        aliases: ["sandy"]
+    },
+    {
+        name: "Seox",
+        aliases: ["six"]
+    },
+    {
+        name: "Siegfried",
+        aliases: ["midfried"]
+    },
+    {
+        name: "Soriz"
+    },
+    {
+        name: "Vane"
+    },
+    {
         name: "Vaseraga",
         aliases: ["Vas"]
+    },
+    {
+        name: "Versusia"
+    },
+    {
+        name: "Vikala",
+        aliases: ["rat"]
+    },
+    {
+        name: "Wilnas"
     },
     {
         name: "Yuel",
         aliases: ["yool"]
     },
+    {
+        name: "Zeta"
+    },
+    {
+        name: "Zooey",
+        aliases: ["zoi"]
+    }
 ].map((i) => ({
     ...i,
     aliases: [i.name.toLowerCase()].concat(i.aliases?.map((i) => i.toLowerCase()) ?? [])
