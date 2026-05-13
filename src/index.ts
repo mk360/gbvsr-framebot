@@ -1,4 +1,4 @@
-import { Client, Events, GatewayIntentBits, REST, Routes, SlashCommandBuilder, SlashCommandStringOption } from "discord.js";
+import { Client, Events, GatewayIntentBits, MessageFlags, REST, Routes, SlashCommandBuilder, SlashCommandStringOption } from "discord.js";
 import dotenv from "dotenv";
 import resolveCharacter from "./resolve-character";
 
@@ -68,14 +68,12 @@ bot.on(Events.InteractionCreate, function(interaction) {
     if (interaction.isChatInputCommand()) {
         const characterName = interaction.options.get("character").value.toString();
         const resolved = resolveCharacter(characterName);
-        console.log({ characterName, resolved });
         if (resolved[0]) {
-            interaction.reply({
-                content: resolved
-            });
+            const moveName = interaction.options.get("move").value;
         } else {
             interaction.reply({
-                content: "No match found"
+                content: "No match found",
+                flags: MessageFlags.Ephemeral
             });
         }
     }

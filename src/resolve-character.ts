@@ -131,11 +131,14 @@ const ROSTER: Character[] = [
         aliases: ["rat"]
     },
     {
+        name: "Vira",
+    },
+    {
         name: "Wilnas"
     },
     {
         name: "Yuel",
-        aliases: ["yool"]
+        aliases: ["yool", "yipper"]
     },
     {
         name: "Zeta"
@@ -174,7 +177,11 @@ function resolveCharacter(input: string) {
         }
     }
 
-    return match.sort((a, b) => b.compositeScore - a.compositeScore)[0].character ?? null;
+    if (match.length) {
+        return match.sort((a, b) => b.compositeScore - a.compositeScore)[0].character ?? null;
+    }
+
+    return null
 };
 
 function levenshtein(input: string, target: string): number {
